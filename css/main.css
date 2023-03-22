@@ -6,10 +6,11 @@
 
 :root {
    --index: calc(1vw + 1vh);
-   --getter: 30px;
+   --gutter: 30px;
    --side-small: 26;
-   --size-big: 36;
+   --side-big: 36;
    --depth: 4000px;
+   --transition: 0.75s cubic-bezier(0.075, 0.5, 0, 1);
 }
 
 @font-face {
@@ -27,9 +28,10 @@ body {
    background-color: #000;
    color: #fff;
    font-size: calc(var(--index) * 0.8);
-   font-family: raleway-cyrillic, sans-serif;
+   font-family: raleway_c, sans-serif;
    line-height: 1.75;
    height: var(--depth);
+   font-weight: 300;
 }
 .container {
    width: 100%;
@@ -48,6 +50,40 @@ body {
    display: flex;
    align-items: center;
    justify-content: center;
-   transition: opacity 0.75s ease;
+   transition: var(--transition), opacity 0.75s ease;
    will-change: transform;
+   transform-style: preserve-3d;
+}
+h1,
+h2,
+h3,
+h4 {
+   font-weight: 100;
+   text-transform: uppercase;
+   width: min-content;
+   line-height: 1;
+}
+.frame h2 {
+   text-align: center;
+   font-size: calc(var(--index) * 3.3);
+}
+.frame-media {
+   position: relative;
+   width: calc(var(--index) * var(--side-small));
+   height: calc(var(--index) * var(--side-big));
+   background-position: center;
+   background-size: cover;
+}
+.frame-media_left {
+   right: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+.frame-media_right {
+   left: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+.frame-bg {
+   background-color: rgb(0 0 0 / 0.8);
+}
+video.frame-media {
+   width: calc(var(--index) * var(--side-big));
+   height: calc(var(--index) * var(--side-big));
 }
