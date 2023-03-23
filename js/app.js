@@ -3,6 +3,10 @@ const frames = Array.from(document.getElementsByClassName("frame"));
 let lastPositin = zSpacing / 5;
 let zValues = [];
 
+window.onload = function () {
+   document.body.classList.add('loaded');
+ }
+
 window.onscroll = function () {
    let top = document.documentElement.scrollTop,
       delta = lastPositin - top;
