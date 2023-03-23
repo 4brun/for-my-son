@@ -13,12 +13,12 @@ window.onscroll = function () {
 
    lastPositin = top;
 
-   frames.forEach(function (n, i) {
-      zValues.push(i * zSpacing + zSpacing);
-      zValues[i] += delta * -5.5;
-      let frame = frames[i];
-      let transform = `translateZ(${zValues[i]}px)`;
-      let opacity = zValues[i] < Math.abs(zSpacing) / 1.8 ? 1 : 0
+   frames.forEach((el, index) => {
+      zValues.push(index * zSpacing + zSpacing);
+      zValues[index] += delta * -5.5;
+      let frame = frames[index];
+      let transform = `translateZ(${zValues[index]}px)`;
+      let opacity = zValues[index] < Math.abs(zSpacing) / 1.8 ? 1 : 0
        frame.setAttribute("style", `transform: ${transform}; opacity: ${opacity}`);
    });
 };
